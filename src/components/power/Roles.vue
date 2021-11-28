@@ -164,14 +164,12 @@ export default {
       const { data: res } = await this.$http.delete(
         `roles/${role.id}/rights/${rightId}`
       )
-      console.log(res)
       if (res.meta.status !== 200) {
         return this.$message.error('删除权限失败')
       }
       //   this.getRolesList()
       // 如果在直接获取会关闭，重新赋值role就可以 防止整个列表刷新
       role.children = res.data
-      console.log(role)
     },
     // 展示分配权限的对话框
     async showSetRightDialog (role) {
@@ -183,7 +181,6 @@ export default {
       }
       //   权限列表的数据
       this.rightList = res.data
-      console.log(this.rightList)
       //   递归获取三级节点的Id
       this.getLeafKeys(role, this.defKeys)
       this.setRightDialogVisible = true
@@ -205,10 +202,8 @@ export default {
     // 角色分配权限
     async allotRights () {
       const keys = [...this.$refs.treeRef.getCheckedKeys(), ...this.$refs.treeRef.getHalfCheckedKeys()]
-      console.log(keys)
       const idStr = keys.join(',')
       const { data: res } = await this.$http.post(`roles/${this.roleId}/rights`, { rids: idStr })
-      console.log(res)
       if (res.meta.status !== 200) {
         return this.$message.error('分配权限失败')
       }

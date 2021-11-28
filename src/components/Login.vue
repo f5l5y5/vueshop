@@ -43,13 +43,11 @@ export default {
   },
   methods: {
     resetLoginForm () {
-      console.log(this.$refs)
       //   重置
       this.$refs.loginFormRef.resetFields()
     },
     login () {
       // 表单预验证
-      console.log(this.loginForm)
       this.$refs.loginFormRef.validate(async valid => {
         if (!valid) return false
         const { data: res } = await this.$http.post('login', this.loginForm)

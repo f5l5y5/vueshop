@@ -278,7 +278,6 @@ export default {
       const { data: res } = await this.$http.get('users', {
         params: this.queryInfo
       })
-      console.log(res)
       if (res.meta.status !== 200) {
         return this.$message.error('数据获取失败')
       }
@@ -287,19 +286,16 @@ export default {
     },
     //   监听pagesize改变的事件
     handleSizeChange (pageSize) {
-      console.log(pageSize)
       this.queryInfo.pagesize = pageSize
       this.getUserList()
     },
     //   监听页码值改变的事件
     handleCurrentChange (currentPage) {
-      console.log(currentPage)
       this.queryInfo.pagenum = currentPage
       this.getUserList()
     },
     // 监听开关状态的变化
     async userStateChanged (userinfo) {
-      console.log(userinfo)
       const { data: res } = await this.$http.put(
         `users/${userinfo.id}/state/${userinfo.mg_state}`
       )
@@ -317,7 +313,6 @@ export default {
     // 添加新用户 表单预验证
     addUser () {
       this.$refs.addFormRef.validate(async (valid) => {
-        console.log(valid)
         if (!valid) return false
         // 可以发起添加用户的网络请求
         const { data: res } = await this.$http.post('users', this.addForm)
