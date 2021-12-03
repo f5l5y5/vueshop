@@ -6,6 +6,7 @@ import Welcome from '../components/Welcome.vue'
 import Users from '../components/user/Users.vue'
 import Rights from '../components/power/Rights.vue'
 import Roles from '../components/power/Roles.vue'
+import Upload from '../components/Upload.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -41,6 +42,11 @@ const routes = [
         // 左边菜单导航到路由通过path进行匹配自动配置到/home/users这个组件
         path: '/roles',
         component: Roles
+      },
+      {
+        // 左边菜单导航到路由通过path进行匹配自动配置到/home/users这个组件
+        path: '/goods',
+        component: Upload
       }
     ]
   }
