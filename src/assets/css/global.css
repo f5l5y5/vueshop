@@ -21,3 +21,7 @@ html,body,#app{
 .el-pagination {
     margin-top: 15px;
 }
+.el-cascader-menu__wrap,
+.el-scrollbar__wrap {
+    height: 290px !important;
+  }
