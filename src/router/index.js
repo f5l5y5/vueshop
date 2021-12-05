@@ -12,6 +12,7 @@ import Params from '../components/goods/Params.vue'
 import GoodsList from '../components/goods/List.vue'
 import Add from '../components/goods/Add.vue'
 import Order from '../components/order/Order.vue'
+import Report from '../components/report/Report.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -77,6 +78,11 @@ const routes = [
         // 左边菜单导航到路由通过path进行匹配自动配置到/home/users这个组件
         path: '/orders',
         component: Order
+      },
+      {
+        // 左边菜单导航到路由通过path进行匹配自动配置到/home/users这个组件
+        path: '/reports',
+        component: Report
       }
     ]
   }
